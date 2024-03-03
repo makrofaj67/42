@@ -1,42 +1,37 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 20:10:33 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/02 20:55:33 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/02 20:56:26 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/02 21:17:27 by rakman           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
+#include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-int	ft_strlen(char *src)
+int	*ft_range(int min, int max)
 {
+	int	*pp;
 	int	i;
 
-	i = 0;
-	while (*src)
+	if (min >= max)
 	{
-		i++;
-		src++;
+		return (NULL);
 	}
-	return (i);
-}
-
-char	*ft_strdup(char *src)
-{
-	char	*mchar;
-	int		i;
-
-	mchar = (char *)malloc(ft_strlen(src) * sizeof(char));
-	i = 0;
-	while (src[i])
+	else
 	{
-		mchar[i] = src[i];
-		i++;
+		pp = (int *)malloc((max - min) * sizeof(int));
+		i = 0;
+		while (i < max - min)
+		{
+			pp[i] = max - min - 1 + i;
+			i++;
+		}
+		return (pp);
 	}
-	mchar[i] = '\0';
-	return (mchar);
 }
