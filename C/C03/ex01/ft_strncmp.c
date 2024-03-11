@@ -1,24 +1,26 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/09 16:00:20 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/11 10:57:26 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/11 22:30:41 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/11 22:34:46 by rakman           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
-
-	i = 0;
-	while (src[i])
+	if (n <= 0)
 	{
-		dest[i] = src[i];
-		i++;
+		return (0);
 	}
-	return (dest);
+	while (*s1 && (*s1 == *s2) && n >= 1)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	return (*s1 - *s2);
 }

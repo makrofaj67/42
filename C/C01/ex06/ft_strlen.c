@@ -22,3 +22,12 @@ int	ft_strlen(char *str)
 	}
 	return (i);
 }
+
+int main ()
+
+{
+    char *s1;
+
+    s1 = "kalem";
+    ft_strlen(s1);
+}

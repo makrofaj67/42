@@ -1,24 +1,41 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/09 16:00:20 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/11 10:57:26 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/11 22:30:55 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/11 22:36:44 by rakman           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-char	*ft_strcpy(char *dest, char *src)
+unsigned int	ft_strlen(char *s1)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (src[i])
+	while (s1[i])
 	{
-		dest[i] = src[i];
 		i++;
 	}
-	return (dest);
+	return (i);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	to_cat;
+
+	to_cat = size - ft_strlen(dest) - 1;
+	if (size <= ft_strlen(dest))
+		return (0);
+	else
+	{
+		while (*src && to_cat >= 1)
+		{
+			*dest++ = *src++;
+			to_cat--;
+		}
+	}
+	return (ft_strlen(dest) + ft_strlen(src));
 }

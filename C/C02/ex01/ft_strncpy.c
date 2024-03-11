@@ -6,19 +6,19 @@
 /*   By: rakman <rakman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 16:03:03 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/10 20:50:47 by rakman           ###   ########.fr       */
+/*   Updated: 2024/03/11 11:09:54 by rakman           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
-
 {
-	char *tmp;
+	int	i;
 
-	tmp = dest;
-	while (*src && n > 0)
+	i = 0;
+	while (src[i] && n > 0)
 	{
-		*tmp++ = *src++;
+		dest[i] = src[i];
+		i++;
 		n--;
 	}
 	return (dest);

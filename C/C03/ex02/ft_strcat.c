@@ -1,24 +1,31 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/09 16:00:20 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/11 10:57:26 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/11 22:30:43 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/11 22:35:07 by rakman           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (src[i])
+	j = 0;
+	while (dest[i])
 	{
-		dest[i] = src[i];
 		i++;
+	}
+	while (src[j])
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
 	return (dest);
 }
