@@ -6,7 +6,7 @@
 /*   By: rakman <rakman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 23:13:08 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/11 23:14:29 by rakman           ###   ########.fr       */
+/*   Updated: 2024/03/12 10:19:22 by rakman           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -27,16 +27,13 @@ void	ft_putnbr(int nb)
 		a = -a;
 		write(1, "-", 1);
 	}
-	else
+	if (a > 9)
 	{
-		if (a > 9)
-		{
-			ft_putnbr(a / 10);
-			ft_putnbr(a % 10);
-		}
-		else if (a <= 9)
-		{
-			ft_putchar(a);
-		}
+		ft_putnbr(a / 10);
+		ft_putnbr(a % 10);
+	}
+	else if (a <= 9)
+	{
+		ft_putchar(a + 48);
 	}
 }

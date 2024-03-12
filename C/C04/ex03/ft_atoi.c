@@ -6,17 +6,49 @@
 /*   By: rakman <rakman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 23:13:10 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/11 23:14:29 by rakman           ###   ########.fr       */
+/*   Updated: 2024/03/12 10:48:44 by rakman           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include <ctype.h>
-#include <stdio.h>
+int	ft_atoi(char *str)
+{
+	int	i;
+	int	result;
 
+	i = 1;
+	result = 0;
+	while ((*str <= 13 && *str >= 9) || (*str == 32))
+	{
+		str++;
+	}
+	while (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+		{
+			i = i * -1;
+		}
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = (*str - 48) + result * 10;
+		str++;
+	}
+	return (result * i);
+}
+
+/*int	main(void)
+{
+	printf("%d", ft_atoi(" ---+--+1234ab567"));
+}
 int	main(void)
 {
 	int		i;
 	char	*str;
+	int		i;
+	int		result;
+	int		i;
+	int		i;
 
 	i = 0;
 	while (i <= 127)
@@ -32,30 +64,4 @@ int	main(void)
 		printf("%d is %s\n", i, str);
 		i++;
 	}
-}
-
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	result;
-
-	i = 1;
-	while ((*str <= 13 || *str >= 9) || (*str == 32))
-	{
-		str++;
-	}
-	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-		{
-			i = i * -1;
-		}
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = 10 * (*str - '0') + result;
-		str++;
-	}
-	return (result * -1);
-}
+}*/
