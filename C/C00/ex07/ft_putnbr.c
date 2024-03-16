@@ -23,3 +23,8 @@ void	ft_putnbr(int nb)
 	if (n <= 9)
 		ft_putchar(n + 48);
 }
+
+int     main()
+{
+    ft_putnbr(256);
+}
