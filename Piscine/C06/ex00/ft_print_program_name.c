@@ -6,7 +6,7 @@
 /*   By: rakman <rakman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 22:33:02 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/14 22:33:32 by rakman           ###   ########.fr       */
+/*   Updated: 2024/03/17 16:02:04 by rakman           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,8 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	(void)argc;
-	int i;
+	int	i;
 
 	i = 0;
 	while (argv[0][i])
@@ -23,4 +22,5 @@ int	main(int argc, char *argv[])
 		write(1, &argv[0][i], 1);
 		i++;
 	}
+	(void)argc;
 }
