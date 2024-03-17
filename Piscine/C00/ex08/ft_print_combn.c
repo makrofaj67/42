@@ -64,8 +64,3 @@ void	ft_print_combn(int n)
 		increment_digits(digits, n);
 	}
 }
-
-int	main(void)
-{
-	ft_print_combn(1);
-}
