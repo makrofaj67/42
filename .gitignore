@@ -1,5 +1,4 @@
-*
 !*.c
 !*.pdf
 !.gitignore
-.vscode/
+Piscine/.vscode
