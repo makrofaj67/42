@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 22:30:49 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/17 19:55:00 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/11 22:30:41 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/21 23:39:49 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s1)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (s1[i])
+	if (n == 0)
+	{
+		return (0);
+	}
+	while (s1[i] && s1[i] == s2[i] && i < n - 1)
 	{
 		i++;
 	}
-	return (i);
-}
-
-int	ft_strncmp(char *s1, char *s2, unsigned int nb)
-{
-	while (*s1 && (*s1 == *s2) && nb >= 1)
+	if (i < n)
 	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
-}
-
-char	*ft_strstr(char *str, char *to_find)
-{
-	while (*str)
-	{
-		if (ft_strcmp(str, to_find) == 0)
-		{
-			return (1);
-		}
-		str++;
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	}
 	return (0);
 }

@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 22:30:41 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/17 19:55:00 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/11 22:30:47 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/21 23:09:51 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n) {
-  if (n <= 0) {
-    return (0);
-  }
-  while (*s1 && (*s1 == *s2) && n >= 1) {
-    s1++;
-    s2++;
-    n--;
-  }
-  return (*s1 - *s2);
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (dest[i])
+	{
+		i++;
+	}
+	while (src[j] && nb >= 1)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+		nb--;
+	}
+	dest[i] = 0;
+	return (dest);
 }

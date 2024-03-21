@@ -6,7 +6,7 @@
 /*   By: rakman <rakman@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 19:53:36 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/17 19:55:00 by rakman           ###   ########.fr       */
+/*   Updated: 2024/03/21 22:52:55 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,18 @@ int	ft_is_uppercase(char c)
 	return (0);
 }
 
-void	ft_make_lower(char c)
+void	ft_make_lower(char *str)
 {
-	if (ft_is_uppercase(c) == 1)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		c = c - 32;
+		if (ft_is_uppercase(str[i]) == 1)
+		{
+			str[i] = str[i] + 32;
+		}
+		i++;
 	}
 }
 
@@ -50,21 +57,28 @@ int	ft_is_alpha_numeric(char c)
 
 char	*ft_strcapitalize(char *str)
 {
+	int	i;
+
+	i = 1;
 	ft_make_lower(str);
-	return (str);
-}
-
-int	main(void)
-{
-	char	deneme[8];
-	char	c;
-
-	deneme[8] = "FFGalem";
-	while (*deneme)
+	while (str[i])
 	{
-		c = *deneme;
-		ft_make_lower(c);
-		write(1, deneme, 1);
-		deneme++;
+		if (ft_is_alpha_numeric(str[i]))
+		{
+			if (ft_is_alpha_numeric(str[i - 1]) == 0)
+			{
+				if (ft_is_numeric(str[i]) == 0)
+				{
+					str[i] = str[i] - 32;
+				}
+				i++;
+			}
+		}
+		i++;
 	}
+	if (str[0] >= 'a' && str[0] <= 'z')
+	{
+		str[0] = str[0] - 32;
+	}
+	return (str);
 }
