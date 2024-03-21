@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 19:20:37 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/17 19:55:00 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/08 19:13:49 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/21 13:45:45 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_rev_int_tab(int *tab, int size)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	int	i;
-	int 	tmp;
-
-	i = 0;
-	tmp = 0;
-	while (i < size / 2)
-	{
-		tmp = tab[i];
-		tab[i] = tab[size - 1 - i];
-		tab[size - 1 - i] = tmp;
-		i++;
-	}
+	*div = a / b;
+	*mod = a % b;
 }

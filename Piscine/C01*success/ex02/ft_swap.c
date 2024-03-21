@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 19:19:31 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/17 19:55:00 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/17 19:48:50 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/21 13:45:59 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_sort_int_tab(int *tab, int size)
+void	ft_swap(int *a, int *b)
 {
-	int	i;
-	int	j;
 	int	tmp;
 
-	i = 0;
-	while (i + 1 <= size)
-	{
-		j = size - 1 - i;
-		while (tab[j])
-		{
-			if (tab[i] < tab[j])
-			{
-				tmp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = tmp;
-			}
-			j--;
-		}
-		i++;
-	}
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
