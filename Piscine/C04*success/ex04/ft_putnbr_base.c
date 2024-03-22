@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 17:11:35 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/17 19:55:00 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/12 10:52:11 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/22 20:41:42 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include <unistd.h>
+
+int	ft_strlen(char *str)
 {
 	int	i;
-	int	result;
 
-	i = 1;
-	result = 0;
-	while ((*str <= 13 && *str >= 9) || (*str == 32))
+	i = 0;
+	while (str[i])
 	{
-		str++;
+		i++;
 	}
-	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-		{
-			i = i * -1;
-		}
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = (*str - 48) + result * 10;
-		str++;
-	}
-	return (result * i);
+	return (i);
 }
 
 int	ft_is_valid_base(char *str)
@@ -63,6 +50,33 @@ int	ft_is_valid_base(char *str)
 	return (1);
 }
 
-int	ft_atoi_base(char *str, char *base)
+void	ft_putnbr(int nb, char *base, int length)
 {
+	long	a;
+
+	a = nb;
+	if (a < 0)
+	{
+		a = -1 * a;
+		write(1, "-", 1);
+	}
+	if (a >= length)
+	{
+		ft_putnbr(a / length, base, length);
+		ft_putnbr(a % length, base, length);
+	}
+	else if (a < length)
+	{
+		write(1, &base[a], 1);
+	}
+}
+
+void	ft_putnbr_base(int nbr, char *base)
+{
+	if (ft_is_valid_base(base))
+	{
+		ft_putnbr(nbr, base, ft_strlen(base));
+	}
+	else
+		write(1, "", 0);
 }
