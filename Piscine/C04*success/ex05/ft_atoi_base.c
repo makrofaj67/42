@@ -6,7 +6,7 @@
 /*   By: rakman <rakman@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:11:35 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/22 21:30:30 by rakman           ###   ########.fr       */
+/*   Updated: 2024/03/22 21:31:43 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_atoi(char *str, char *base)
 	while (*str)
 	{
 		j = 0;
-		while (*str != base[j])
+		while (base[j] != *str)
 		{
 			j++;
 		}
