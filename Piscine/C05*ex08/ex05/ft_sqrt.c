@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 19:54:43 by rakman            #+#    #+#             */
-/*   Updated: 2024/03/17 19:55:00 by rakman           ###   ########.fr       */
+/*   Created: 2024/03/22 22:09:29 by rakman            #+#    #+#             */
+/*   Updated: 2024/03/22 22:24:03 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_fibonacci(int index)
-{
-	int	fibnb;
+#include <stdio.h>
 
-	if (index <= 0)
-		return (0);
+int	ft_sqrt(int nb)
+{
+	int	number_to_try;
+
+	number_to_try = 0;
+	while (number_to_try * number_to_try <= nb)
+	{
+		number_to_try++;
+	}
+	number_to_try--;
+	if (number_to_try * number_to_try == nb)
+	{
+		return (number_to_try);
+	}
 	else
 	{
+		return (0);
 	}
 }
