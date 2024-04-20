@@ -1,0 +1,16 @@
+
+;; Function main (main, funcdef_no=0, decl_uid=2741, cgraph_uid=1, symbol_order=0)
+
+int main ()
+{
+  int D.2744;
+
+  D.2744 = 0;
+  goto <D.2745>;
+  D.2744 = 0;
+  goto <D.2745>;
+  <D.2745>:
+  return D.2744;
+}
+
+

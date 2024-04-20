@@ -1,0 +1,71 @@
+High Level Overview
+
+1) preprocessor
+    source.i
+2) compiler
+    source.s
+3) assembler
+    source.o
+4) linker
+    a.out
+
+-------------------
+PREPROCESSOR
+    
+    ilk karakteri kare olan tüm satırları işler.
+    yani #include "source.h" içerisindeki prototipi main.c üzerine yapıştırır gibi bi şey.
+        # 0 "main.c"
+        # 0 "<built-in>"
+        # 0 "<command-line>"
+        # 1 "/usr/include/stdc-predef.h" 1 3 4
+        # 0 "<command-line>" 2
+        # 1 "main.c"
+        # 1 "source.h" 1
+        int add (int a, int b);
+        # 2 "main.c" 2
+
+        int main()
+        {
+        return 0;
+        }
+
+    gcc -E ile .i dosyasının outputunu terminalde görebilirsin.
+
+?????????????????????????
+    #ifndef source.h
+    #define source.h
+    #endif
+
+    burada yaptığımız şey eğer source.h içerisindeki fonksiyon prototipleri eğer oluşturulacak .i dosyasında zaten varsa bu prototipleri .i dosyasına ekleme, .i dosyasına ekleme.
+????????????????????????
+
+-------------------
+COMPILER
+
+    gcc -fdump-tree-all-graph -g main.c source.c
+    xdot ile graphlara bakabilirsin
+    assembly kodunu oluşturur
+
+    gcc -S ile .s dosyasını görebilirisin.
+
+------------------
+ASSEMBLER
+
+    assembly kodundan object kodlarını oluşturur
+    objdump
+
+-----------------
+LINKER
+
+    oluşturulan object dosyalarını birleştirir
+    ldd
+
+--------------------------------------
+
+`#define TRUE 1` ve `int true = 1` aynı şey değildir, ancak benzer bir amaca hizmet ederler.
+`#define TRUE 1` bir ön işlemci direktifidir ve `TRUE` kelimesinin her görülmesini `1` ile değiştirir.
+Bu, tüm program boyunca geçerlidir ve `TRUE` bir değişken değil, bir metin yerine geçme (text replacement) veya bir makrodur.
+Öte yandan, `int true = 1` bir değişken tanımlamasıdır. `true` adında bir tam sayı değişkeni oluşturur ve ona `1` değerini atar.
+Bu değişkenin kapsamı tanımlandığı blokla sınırlıdır ve değeri değiştirilebilir.
+Genel olarak, `#define` kullanarak bir sabit tanımlamak, bir değişken tanımlamaktan daha az bellek kullanır çünkü aslında bir değişken oluşturmaz.
+Ancak, `#define` kullanırken dikkatli olunmalıdır çünkü tip denetimi yoktur ve yanlışlıkla bir makroyu yeniden tanımlayabilirsiniz.
