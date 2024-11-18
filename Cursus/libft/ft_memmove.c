@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakman <rakman@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 00:33:03 by rakman            #+#    #+#             */
-/*   Updated: 2024/11/18 05:52:41 by rakman           ###   ########.fr       */
+/*   Created: 2024/10/27 22:33:03 by rakman            #+#    #+#             */
+/*   Updated: 2024/11/18 15:43:13 by rakman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*d;
-	char	*s;
-	size_t	i;
+	size_t	iter;
+	char	*dstprt;
+	char	*srcprt;
 
-	d = (char *)dst;
-	s = (char *)src;
-	i = 0;
-	if (!d && !s)
+	iter = 0;
+	dstprt = (char *)dst;
+	srcprt = (char *)src;
+	if ((dstprt == NULL) && (srcprt == NULL))
 		return (NULL);
-	if (d > s)
+	if (dstprt > srcprt)
 	{
 		while (len-- > 0)
 		{
-			d[len] = s[len];
+			dstprt[len] = srcprt[len];
 		}
 	}
 	else
 	{
-		while (i < len)
+		while (iter < len)
 		{
-			d[i] = s[i];
-			i++;
+			dstprt[iter] = srcprt[iter];
+			iter++;
 		}
 	}
 	return (dst);
